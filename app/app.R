@@ -50,6 +50,12 @@ month_change$Month <- factor(c("Jan", "Feb", "Mar", "Apr",
                                         "May", "Jun", "Jul", "Aug", 
                                         "Sep", "Oct", "Nov", "Dec"))
 
+oceanIcons <- iconList(
+    haress = makeIcon("ferry-18.png", "ferry-18@2x.png", 18, 18),
+    pirate = makeIcon("danger-24.png", "danger-24@2x.png", 24, 24)
+)
+
+
 
 
 
@@ -65,7 +71,8 @@ ui<-tagList(
                             h3("I have Gregson’s word for that—",align="center",style = "color:white"),
                             h4("it follows that it must have been there during the night",align="center",style = "color:white"),
                             h5(" and, therefore,",align="center",style = "color:white"),
-                            h6("that it brought those two individuals to the house.\"", align="center",style = "color:white")
+                            h6("that it brought those two individuals to the house.\"", align="center",style = "color:white"),
+                            h6("                               ----Arthur Conan Doyle",align="right")
                         )
                ),
                
@@ -89,7 +96,7 @@ ui<-tagList(
                ),
                
                tabPanel("Crimes VS Weather",
-                        titlePanel("Total crimes in different months and monthly average temperature for 2018"),
+                        titlePanel(h3("Crimes in different months and monthly weather condition for 2018")),
                         sidebarPanel(
                             radioButtons("weather","Temperature/Precipitation/Wind:",choices = weather,selected = weather[1]
                             ),
@@ -180,17 +187,20 @@ server<-function(input, output) {
                "traffic"=month_change$traffic,           
                "all"=month_change$all)
     })
-    
     output$barplot<- renderPlot({
         ggplot(month_change) + 
-            geom_bar(aes(Month, crime_typeInput()), stat = "identity", fill="grey") + 
+            geom_bar(aes(Month, crime_typeInput(),fill="Number of Crimes"), stat = "identity") + 
             geom_point(aes(Month, weatherInput()*.8*min(crime_typeInput()/weatherInput())), colour="black") + 
-            geom_line(aes(Month, weatherInput()*.8*min(crime_typeInput()/weatherInput()), group=1), colour="black") + 
+            geom_line(aes(Month, weatherInput()*.8*min(crime_typeInput()/weatherInput()), group=1, colour="Weather")) + 
+            scale_colour_manual("", values=c("Number of Total Crimes"="grey", "Weather"="black")) +  
+            scale_fill_manual("",values="grey")+
             scale_y_continuous(sec.axis = sec_axis(~./.8/min(crime_typeInput()/weatherInput()))) +
-            labs(title = paste(input$weather, input$crime_type, sep="&") )
-        #scale_x_continuous(breaks=c(1:12), label=month_change$Month)
-        
+            labs(title = paste(input$weather, input$crime_type, sep=" & "), y="" ) +
+            theme(legend.justification=c(1,1), legend.position=c(1,1), panel.grid.major =element_blank(), 
+                  panel.grid.minor = element_blank(), panel.background = element_blank())
     })
+    
+
 }
 
 # Run the application 
