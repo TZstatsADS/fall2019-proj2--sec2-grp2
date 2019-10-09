@@ -1,0 +1,223 @@
+---
+title: "Shiny_grp2"
+author: "Yang Meng"
+date: "10/4/2019"
+output: html_document
+---
+
+```{r }
+
+```
+
+```{r}
+library(shiny)
+library(dplyr)
+library(stringr)
+library(readr)
+library(leaflet)
+library(tidyr)
+library(rsconnect)
+library(ggplot2)
+library(shinyWidgets)
+library(shinythemes)
+```
+
+```{r}
+load('../output/data2018.RData')
+head(data2018)
+```
+
+```{r}
+monthChoices <- list("Jan", "Feb", "Mar" ,
+                     "Apr" , "May", "Jun" ,
+                     "Jul" , "Aug", "Sep" ,
+                     "Oct" , "Nov" , "Dec" )
+#summary_ofens <- data2018 %>% group_by(data2018$OFNS_DESC) %>% summarize(count=n())
+#ofens_des <- summary_ofens$`data2018$OFNS_DESC`
+summary_ofens <- data2018 %>% group_by(data2018$CRIME_TYPE) %>% summarize(count=n())
+ofens_des <- summary_ofens$`data2018$CRIME_TYPE`
+weather<-list("Temperature","Precipitation","Wind")
+#tab2
+month_change <- as.data.frame.array(table(data2018$month, data2018$CRIME_TYPE))
+row.names(month_change) <- c(4,8,12,2,1,7,6,3,5,11,10,9)
+month_change$all <- as.array(table(data2018$month))
+month_change$id<-c(4,8,12,2,1,7,6,3,5,11,10,9)
+month_change<-month_change[order(month_change$id),]
+month_change$Temperature <- c(21.8, 31.5, 32.1, 39.5,
+                              62.4, 65.5, 72.7, 70.6,
+                              64.0, 49.1, 34.9, 30.0)
+month_change$Precipitation<-c(1.90, 2.71, 7.23, 3.35,
+                    2.61, 2.05, 3.80, 3.71,
+                    4.38, 5.15, 6.28, 3.61)
+month_change$Wind <- c(19.2, 18.4, 17.3, 22.4,
+                       19.6, 17.7, 17.7, 15.4,
+                       15.6, 19.6, 21.2, 19.3)
+month_change$Month <- factor(c("Jan", "Feb", "Mar", "Apr", 
+                               "May", "Jun", "Jul", "Aug", 
+                               "Sep", "Oct", "Nov", "Dec"),
+                             levels = c("Jan", "Feb", "Mar", "Apr", 
+                                        "May", "Jun", "Jul", "Aug", 
+                                        "Sep", "Oct", "Nov", "Dec"))
+```
+
+```{r}
+#ui
+ui<-tagList(
+  navbarPage(p(class="h","Crime"),id = "inTabset", theme = shinythemes::shinytheme("cyborg"),
+                         tabPanel("Introduction",
+                                  setBackgroundImage("https://sherlock.ambient-mixer.com/images_template/7/d/3/7d3c78599fcd0e2d970c2395ae7d5562_full.jpg"),
+                                  mainPanel(
+                                    h1("\"Since the cab was there after the",span("rain", style = "color:red"), "began,",align="center", style = "color:white"),
+                                    h2("and was not there at any time during the morning—",align="center",style = "color:white"),
+                                    h3("I have Gregson’s word for that—",align="center",style = "color:white"),
+                                    h4("it follows that it must have been there during the night",align="center",style = "color:white"),
+                                    h5(" and, therefore,",align="center",style = "color:white"),
+                                    h6("that it brought those two individuals to the house.\"", align="center",style = "color:white")
+                                            )
+                                  ),
+
+tabPanel("CrimeMap",
+  titlePanel(h3("Mapping New York crime incidences for 2018")),
+
+  #tags$h1("Mapping New York crime incidences for 2018"),
+  
+  sidebarPanel(
+    checkboxGroupInput("month", "Choose month:",
+                       monthChoices,selected = monthChoices[1]),
+    
+    selectInput("crimeType","Select a type of crime",
+                choices=ofens_des,
+                selected=ofens_des[1])
+               ),
+  mainPanel(
+    leafletOutput("crimeMap",width="100%",height=650))
+  
+              
+        ),
+
+tabPanel("Crimes VS Weather",
+         titlePanel("Total crimes in different months and monthly average temperature for 2018"),
+         sidebarPanel(
+           radioButtons("weather","Temperature/Precipitation/Wind:",choices = weather,selected = weather[1]
+            ),
+           
+           selectInput("crime_type","Select a type of crime",
+                       choices=c(ofens_des,"all"),
+                       selected=c(ofens_des,"all")[1])),
+          mainPanel(plotOutput("barplot",height = 500))
+        ),
+
+tabPanel("Contact",fluidPage(
+                                                         sidebarLayout(
+                                                           sidebarPanel(h3("Contact Information")),
+                                                           mainPanel(
+                                                        
+                                                             
+                                                             hr(),
+                                                             h4(("If you are interested in our project, you can contact us.")),
+                                                             hr(),
+                                                             h6(("Abrams, Zack")),
+                                                             h6((" zda2105@columbia.edu")),
+                                                             h6(("Gao, Xin")),
+                                                             h6(("xg2298@columbia.edu")),
+                                                             h6(("Gao, Zun ")),
+                                                             h6((" zg2307@columbia.edu")),
+                                                             h6(("Meng, Yang")),
+                                                             h6((" ym2696@columbia.edu")),
+                                                             h6(("Ruan, Qiuyu")),
+                                                             h6(("qr2127@columbia.edu"))))
+))))
+
+```
+
+```{r}
+#server
+server<-function(input, output) {
+  offenseColor <- colorFactor(rainbow(8), data2018$CRIME_TYPE)
+  selectedData <- reactive({
+    req(input$crimeType)
+    req(input$month)
+    data2018 %>% 
+      dplyr::filter(data2018$month %in% input$month & data2018$CRIME_TYPE %in% input$crimeType
+                    )
+    })
+        # Set Data based on the input selection #        
+        # render map using the leaflet fucntion #  
+        output$crimeMap <- renderLeaflet({
+
+          leaflet(selectedData()) %>%
+            addProviderTiles("CartoDB") %>%
+            setView(-73.98575,40.74856, zoom = 10)
+        })
+        # update map based on changed inputs #
+        observe({
+          leafletProxy("crimeMap", data = selectedData()) %>%
+            clearMarkers() %>%
+            clearControls() %>%
+            addCircleMarkers(
+              stroke = FALSE, fillOpacity = 0.5, radius=3, color =~offenseColor(input$crimeType),
+                        
+              popup = ~paste("<strong>Offense:</strong>",CRIME_TYPE,
+                             "<br>",
+                             "<strong>Month:</strong>",month,
+                             "<br>",
+                             "<strong>Location:</strong>",PREM_TYP_DESC)
+            )
+
+       
+})
+        
+        
+#barplot for months
+
+weatherInput <- reactive({
+  switch(input$weather,
+         "Temperature"=month_change$Temperature,
+         "Precipitation"=month_change$Precipitation,
+         "Wind"=month_change$Wind)
+})
+  
+crime_typeInput <- reactive({
+  switch(input$crime_type,
+         "drug_alcho_gamble"=month_change$drug_alcho_gamble,
+         "fraud"=month_change$fraud,             
+         "harass"=month_change$harass,            
+         "kill"=month_change$kill,              
+         "others"=month_change$others,           
+         "robbery_crime"=month_change$robbery_crime,     
+         "theft"=month_change$theft,             
+         "traffic"=month_change$traffic,           
+         "all"=month_change$all)
+})
+
+output$barplot<- renderPlot({
+  ggplot(month_change) + 
+  geom_bar(aes(Month, crime_typeInput()), stat = "identity", fill="grey") + 
+  geom_point(aes(Month, weatherInput()*.8*min(crime_typeInput()/weatherInput())), colour="black") + 
+  geom_line(aes(Month, weatherInput()*.8*min(crime_typeInput()/weatherInput()), group=1), colour="black") + 
+  scale_y_continuous(sec.axis = sec_axis(~./.8/min(crime_typeInput()/weatherInput()))) +
+  labs(title = paste(input$weather, input$crime_type, sep="&") )
+  #scale_x_continuous(breaks=c(1:12), label=month_change$Month)
+
+})
+}
+```
+
+```{r}
+#run shiny app
+shinyApp(ui = ui, server = server)
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+

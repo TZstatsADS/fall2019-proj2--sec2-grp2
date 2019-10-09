@@ -1,0 +1,65 @@
+---
+title: "Data_Processing"
+author: "Yang Meng"
+date: "10/4/2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+```{r}
+library(dplyr)
+library(readr)
+library(tidyr)
+library(lubridate)
+```
+
+
+```{r}
+#Read original data
+data <- read_csv("../data/NYPD_Complaint_Data_Historic.csv", col_types = cols(CMPLNT_FR_DT = col_date(format = "%m/%d/%Y")))
+```
+
+```{r}
+#Subset data with 2018
+#Clean NA's in location
+data2018 <- data %>% 
+  filter(year(data$CMPLNT_FR_DT)==2018) %>% 
+  drop_na(Latitude, Longitude)
+monthChoices <- list("Jan", "Feb", "Mar" ,
+                     "Apr" , "May", "Jun" ,
+                     "Jul" , "Aug", "Sep" ,
+                     "Oct" , "Nov" , "Dec" )
+data2018$month <- unlist(monthChoices)[month(data2018$CMPLNT_FR_DT)]
+names(data2018)[names(data2018)=='Latitude'] <- 'lat'
+names(data2018)[names(data2018)=='Longitude'] <- 'lng'
+```
+
+```{r}
+drug_alcho_gamble <-c("LOITERING/GAMBLING (CARDS, DIC","ALCOHOLIC BEVERAGE CONTROL LAW","GAMBLING","DANGEROUS DRUGS")
+traffic <- c("VEHICLE AND TRAFFIC LAWS", "UNAUTHORIZED USE OF A VEHICLE", "PETIT LARCENYOF MOTOR VEHICLE", "INTOXICATED/IMPAIRED DRIVING","INTOXICATED & IMPAIRED DRIVING")
+robbery_crime <- c("ROBBERY","KIDNAPPING","KIDNAPPING & RELATED OFFENSES","CRIMINAL MISCHIEF & RELATED OF","ABORTION")
+fraud <- c("THEFT-FRAUD","OFFENSES INVOLVING FRAUD","FRAUDULENT ACCOSTING","FRAUDS")
+theft <- c("OTHER OFFENSES RELATED TO THEF", "GRAND LARCENY","CRIMINAL TRESPASS","BURGLAR'S TOOLS","THEFT OF SERVICES","POSSESSION OF STOLEN PROPERTY","GRAND LARCENY OF MOTOR VEHICLE","BURGLARY")
+kill <- c("NYS LAWS-UNCLASSIFIED FELONY", "MURDER & NON-NEGL. MANSLAUGHTER", "HOMICIDE-NEGLIGENT,UNCLASSIFIE","HOMICIDE-NEGLIGENT-VEHICLE","FELONY ASSAULT")
+harass <- c("OFFENSES AGAINST PUBLIC SAFETY","HARRASSMENT 2","DISRUPTION OF A RELIGIOUS SERV","ARSON","UNLAWFUL POSS. WEAP. ON SCHOOL","SEX CRIMES","RAPE","OFFENSES RELATED TO CHILDREN","OFFENSES AGAINST THE PERSON","OFFENSES AGAINST PUBLIC ADMINI","DISORDERLY CONDUCT")
+```
+
+```{r}
+data2018$CRIME_TYPE <- rep("others", dim(data2018)[1])
+data2018[data2018$OFNS_DESC %in% drug_alcho_gamble,]$CRIME_TYPE <- "drug_alcho_gamble"
+data2018[data2018$OFNS_DESC %in% traffic,]$CRIME_TYPE <- "traffic"
+data2018[data2018$OFNS_DESC %in% robbery_crime,]$CRIME_TYPE <- "robbery_crime"
+data2018[data2018$OFNS_DESC %in% fraud,]$CRIME_TYPE <- "fraud"
+data2018[data2018$OFNS_DESC %in% theft,]$CRIME_TYPE <- "theft"
+data2018[data2018$OFNS_DESC %in% kill,]$CRIME_TYPE <- "kill"
+data2018[data2018$OFNS_DESC %in% harass,]$CRIME_TYPE <- "harass"
+```
+
+```{r}
+save(data2018, file="../output/data2018.RData")
+```
+
