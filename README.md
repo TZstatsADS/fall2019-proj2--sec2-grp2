@@ -22,7 +22,7 @@ Term: Fall 2019
 
 + Team # 2
 
-+ ** Link to Shiny App:**: [shiny](https://xg2298.shinyapps.io/proj2/)
++ **Link to Shiny App:** [shiny](https://xg2298.shinyapps.io/proj2/)
 	+ Abrams, Zack zda2105@columbia.edu
 	+ Gao, Xin xg2298@columbia.edu
 	+ Gao, Zun zg2307@columbia.edu
