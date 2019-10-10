@@ -49,7 +49,7 @@ Users can find the team's contact information.
 
 + **Contribution statement**: ([default](doc/a_note_on_contributions.md)) \\
 
-Introduction page: Xin Gao
+Introduction page: Xin Gao\\
 cimeMap page-UI: Xin Gao
 crimeMap page-Server: Xin Gao
 Crime VS weather page-UI: Qiuyu Ruan, Yang Meng
