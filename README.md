@@ -30,9 +30,15 @@ Term: Fall 2019
 	+ Ruan, Qiuyu qr2127@columbia.edu
 
 + **Project summary**:\
-Hotter temperatures may also lead to one unexpected result: a rise in violent crime. Research by Leah Schinasi and Ghassan Hamra, professors at Drexel University, has uncovered a strong link between hot weather in violent time by looking at data from Philadelphia over the course of ten years. Understanding the link between types of weather and crime rates and how crime is distributed over a geographic area could prove essential for the century to come. 
+Hotter temperatures may also lead to one unexpected result: a rise in violent crime. Research by Leah Schinasi and Ghassan Hamra, professors at Drexel University, has uncovered a strong link between hot weather in violent time by looking at data from Philadelphia over the course of ten years. Understanding the link between types of weather and crime rates and how crime is distributed over a geographic area could prove essential for the century to come.\
+In our project, we analyzed data from  [NYC Open Data](https://data.cityofnewyork.us/Public-Safety/NYPD-Complaint-Data-Historic/qgea-i56i) to graph the link between different types of crime and the monthly average temperature, precipitation and wind speed, along with how that crime is spread throughout New York City in 2018.( The weather data we get is from [cnyweather](http://www.cnyweather.com/wxrainsummary.php).) We think that this information could serve the efforts of local law enforcement, as well as companies in the ride-hailing and food delivery sectors, by making clear the areas that should be avoided given certain meteorological circumstances.\ 
+	+ Target users: People who put safety first in all activities, and are curious about the factors in crimes in New York, such as travelers seeking the balance between safety and joy, New York newcomers renting houses, New York citizens walking the dog, jogging, and parents with children going on picnic.\
+	+ Value for target users:
+	1. The app shows the link between crime and weather, along with the location. The target users such as parents and travelers care about weather condition and the location they plan to go in the next few days, so they may try to avoid unsafe places in a short term.\
+	2. The target users such as newcomers renting houses will consider the weather and location in a long term, and the app can help them find the safe place automatically.\
+	3. The data of the app is new (2018), so the result is updated.
 
-In our project, we analyzed data from  [NYC Open Data](https://data.cityofnewyork.us/Public-Safety/NYPD-Complaint-Data-Historic/qgea-i56i) to graph the link between different types of crime and the monthly average temperature, precipitation and wind speed, along with how that crime is spread throughout New York City in 2018.( The weather data we get is from [cnyweather](http://www.cnyweather.com/wxrainsummary.php).) We think that this information could serve the efforts of local law enforcement, as well as companies in the ride-hailing and food delivery sectors, by making clear the areas that should be avoided given certain meteorological circumstances. 
+
 
 **On the "Introduction" page：**
 It is a quote from Conan Doyle.
