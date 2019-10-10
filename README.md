@@ -38,25 +38,16 @@ In our project, we analyzed data from  [NYC Open Data](https://data.cityofnewyor
 	2. The target users such as newcomers renting houses will consider the weather and location in a long term, and the app can help them find the safe place automatically.\
 	3. The data of the app is new (2018), so the result is updated.
 
-
-
-**On the "Introduction" page：**
-It is a quote from Conan Doyle.
-
-**On the "CrimeMap" page：**
-It is an interactive crime map in NYC. Users can select multiple months, from January to December, as well as a type of crime. So they can know how each kind of crime is distributed in a specific month range in 2018.
-![screenshot](doc/figs/screenshot1.png)
-
-
-
-
-**On the "Crimes VS weather" page：**
-Users can get a view of the relationship between numbers of crimes and weather conditions. There are three options of weather conditions, including temperature, precipitation and wind speed. Also users can discover how the numbers of different types of crimes vary by month.
-![screenshot](doc/figs/screenshot2.png)
-
-
-
-**On the "Contact" page：**
++ **User guide**:\
+**On the "Introduction" page：**\
+It is a quote from Conan Doyle.\
+**On the "CrimeMap" page：**\
+It is an interactive crime map in NYC. Users can select multiple months, from January to December, as well as a type of crime. So they can know how each kind of crime is distributed in a specific month range in 2018.\
+![screenshot](doc/figs/screenshot1.png)\
+**On the "Crimes VS weather" page：**\
+Users can get a view of the relationship between numbers of crimes and weather conditions. There are three options of weather conditions, including temperature, precipitation and wind speed. Also users can discover how the numbers of different types of crimes vary by month.\
+![screenshot](doc/figs/screenshot2.png)\
+**On the "Contact" page：**\
 Users can find the team's contact information.
 
 + **Contribution statement**: ([default](doc/a_note_on_contributions.md))
