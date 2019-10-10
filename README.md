@@ -17,11 +17,11 @@ The **learning goals** for this project is:
 
 *The above general statement about project 2 can be removed once you are finished with your project. It is optional.
 
-## Project Title Lorem ipsum dolor sit amet
+## New York City Crime activities
 Term: Fall 2019
 
 + Team # 2
-+ **Projec title**: + Team members
++ **Project title**: 
 	+ Abrams, Zack zda2105@columbia.edu
 	+ Gao, Xin xg2298@columbia.edu
 	+ Gao, Zun zg2307@columbia.edu
@@ -50,13 +50,21 @@ Users can find the team's contact information.
 + **Contribution statement**: ([default](doc/a_note_on_contributions.md)) \\
 
 Introduction page: Xin Gao
+
 cimeMap page-UI: Xin Gao
+
 crimeMap page-Server: Xin Gao
+
 Crime VS weather page-UI: Qiuyu Ruan, Yang Meng
+
 Crime VS weather page-Server: Qiuyu Ruan, Yang Meng
+
 Contact page: Qiuyu Ruan
+
 Presentation: Zun Gao, Zack Abrams
+
 Data cleaning: Xin Gao, Qiuyu Ruan, Yang Meng
+
 Github arrangement: Yang Meng
 
 Following [suggestions](http://nicercode.github.io/blog/2013-04-05-projects/) by [RICH FITZJOHN](http://nicercode.github.io/about/#Team) (@richfitz). This folder is orgarnized as follows.
