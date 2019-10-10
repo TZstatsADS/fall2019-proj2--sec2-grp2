@@ -19,12 +19,21 @@ Summary: In this project, we graph the link between different types of crime and
 
 [Contribution Statement] 
 
+
 Introduction page: Xin Gao
+
 cimeMap page-UI: Xin Gao
+
 crimeMap page-Server: Xin Gao
+
 Crime VS weather page-UI: Qiuyu Ruan, Yang Meng
+
 Crime VS weather page-Server: Qiuyu Ruan, Yang Meng
+
 Contact page: Qiuyu Ruan
+
 Presentation: Zun Gao, Zack Abrams
+
 Data cleaning: Xin Gao, Qiuyu Ruan, Yang Meng
+
 Github arrangement: Yang Meng
