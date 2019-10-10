@@ -1,6 +1,6 @@
 #
-# This is a Shiny web application. You can run the application by clicking
-# the 'Run App' button above.
+# This is the server logic of a Shiny web application. You can run the
+# application by clicking 'Run App' above.
 #
 # Find out more about building applications with Shiny here:
 #
@@ -49,81 +49,6 @@ month_change$Month <- factor(c("Jan", "Feb", "Mar", "Apr",
                              levels = c("Jan", "Feb", "Mar", "Apr", 
                                         "May", "Jun", "Jul", "Aug", 
                                         "Sep", "Oct", "Nov", "Dec"))
-
-
-
-
-
-
-
-# Define UI for application that draws a histogram
-ui<-tagList(
-    navbarPage(p(class="h","Crime"),id = "inTabset", theme = shinythemes::shinytheme("cyborg"),
-               tabPanel("Introduction",
-                        setBackgroundImage("https://sherlock.ambient-mixer.com/images_template/7/d/3/7d3c78599fcd0e2d970c2395ae7d5562_full.jpg"),
-                        mainPanel(
-                            h1("\"Since the cab was there after the",span("rain", style = "color:red"), "began,",align="center", style = "color:white"),
-                            h2("and was not there at any time during the morning—",align="center",style = "color:white"),
-                            h3("I have Gregson’s word for that—",align="center",style = "color:white"),
-                            h4("it follows that it must have been there during the night",align="center",style = "color:white"),
-                            h5(" and, therefore,",align="center",style = "color:white"),
-                            h6("that it brought those two individuals to the house.\"", align="center",style = "color:white"),
-                            h6("                               ----Arthur Conan Doyle",align="right")
-                        )
-               ),
-               
-               tabPanel("CrimeMap",
-                        titlePanel(h3("Mapping New York crime incidences for 2018")),
-                        
-                        #tags$h1("Mapping New York crime incidences for 2018"),
-                        
-                        sidebarPanel(
-                            checkboxGroupInput("month", "Choose month:",
-                                               monthChoices,selected = NULL),
-                            
-                            selectInput("crimeType","Select a type of crime",
-                                        choices=ofens_des,
-                                        selected=ofens_des[1])
-                        ),
-                        mainPanel(
-                            leafletOutput("crimeMap",width="100%",height=650))
-                        
-                        
-               ),
-               
-               tabPanel("Crimes VS Weather",
-                        titlePanel(h3("Number of crimes in different months and monthly weather condition for 2018")),
-                        sidebarPanel(
-                            radioButtons("weather","Temperature/Precipitation/Wind:",choices = weather,selected = weather[1]
-                            ),
-                            
-                            selectInput("crime_type","Select a type of crime",
-                                        choices=c(ofens_des,"all"),
-                                        selected=c(ofens_des,"all")[1])),
-                        mainPanel(plotOutput("barplot",height = 500))
-               ),
-               
-               tabPanel("Contact",fluidPage(
-                   sidebarLayout(
-                       sidebarPanel(h3("Contact Information")),
-                       mainPanel(
-                           
-                           
-                           hr(),
-                           h4(("If you are interested in our project, you can contact us.")),
-                           hr(),
-                           h6(("Abrams, Zack")),
-                           h6((" zda2105@columbia.edu")),
-                           h6(("Gao, Xin")),
-                           h6(("xg2298@columbia.edu")),
-                           h6(("Gao, Zun ")),
-                           h6((" zg2307@columbia.edu")),
-                           h6(("Meng, Yang")),
-                           h6((" ym2696@columbia.edu")),
-                           h6(("Ruan, Qiuyu")),
-                           h6(("qr2127@columbia.edu"))))
-               ))))
-
 
 # Define server logic required to draw a histogram
 server<-function(input, output) {
@@ -183,6 +108,7 @@ server<-function(input, output) {
                "traffic"=month_change$traffic,           
                "all"=month_change$all)
     })
+    
     output$barplot<- renderPlot({
         ggplot(month_change) + 
             geom_bar(aes(Month, crime_typeInput(),fill="Number of Crimes"), stat = "identity") + 
@@ -195,9 +121,4 @@ server<-function(input, output) {
             theme(legend.justification=c(1,1), legend.position=c(1,1), panel.grid.major =element_blank(), 
                   panel.grid.minor = element_blank(), panel.background = element_blank())
     })
-    
-
 }
-
-# Run the application 
-shinyApp(ui = ui, server = server)
