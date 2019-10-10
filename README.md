@@ -17,12 +17,12 @@ The **learning goals** for this project is:
 
 *The above general statement about project 2 can be removed once you are finished with your project. It is optional.
 
-## New York City Crime activities
+## Project Title: New York City Crime activities
 Term: Fall 2019
 
 + Team # 2
-Link to Shiny App:[shiny](https://xg2298.shinyapps.io/proj2/)
-+ **Project title**: 
+
++ ** Link to Shiny App:**: [shiny](https://xg2298.shinyapps.io/proj2/)
 	+ Abrams, Zack zda2105@columbia.edu
 	+ Gao, Xin xg2298@columbia.edu
 	+ Gao, Zun zg2307@columbia.edu
