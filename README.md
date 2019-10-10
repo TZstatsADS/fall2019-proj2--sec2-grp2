@@ -28,7 +28,8 @@ Term: Fall 2019
 	+ Meng, Yang ym2696@columbia.edu
 	+ Ruan, Qiuyu qr2127@columbia.edu
 
-+ **Project summary**: Hotter temperatures may also lead to one unexpected result: a rise in violent crime. Research by Leah Schinasi and Ghassan Hamra, professors at Drexel University, has uncovered a strong link between hot weather in violent time by looking at data from Philadelphia over the course of ten years. Understanding the link between types of weather and crime rates and how crime is distributed over a geographic area could prove essential for the century to come. 
++ **Project summary**:
+Hotter temperatures may also lead to one unexpected result: a rise in violent crime. Research by Leah Schinasi and Ghassan Hamra, professors at Drexel University, has uncovered a strong link between hot weather in violent time by looking at data from Philadelphia over the course of ten years. Understanding the link between types of weather and crime rates and how crime is distributed over a geographic area could prove essential for the century to come. 
 
 In our project, we analyzed data from  [NYC Open Data](https://data.cityofnewyork.us/Public-Safety/NYPD-Complaint-Data-Historic/qgea-i56i) to graph the link between different types of crime and the monthly average temperature, precipitation and wind speed, along with how that crime is spread throughout New York City in 2018. We think that this information could serve the efforts of local law enforcement, as well as companies in the ride-hailing and food delivery sectors, by making clear the areas that should be avoided given certain meteorological circumstances. 
 
@@ -43,6 +44,8 @@ It is an interactive crime map in NYC. Users can select multiple months, from Ja
 **On the "Crimes VS weather" page：**
 Users can get a view of the relationship between numbers of crimes and weather conditions. There are three options of weather conditions, including temperature, precipitation and wind speed. Also users can discover how the numbers of different types of crimes vary by month.
 ![screenshot](doc/screenshot2.png)
+
+
 
 **On the "Contact" page：**
 Users can find the team's contact information.
