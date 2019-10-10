@@ -1,6 +1,6 @@
 # Project 2: Shiny App Development Version 2.0
 
-### [Project Description](doc/project2_desc.md)
+
 
 ![screenshot](doc/screenshot3.png)
 
@@ -32,18 +32,23 @@ Term: Fall 2019
 
 In our project, we analyzed data from  [NYC Open Data](https://data.cityofnewyork.us/Public-Safety/NYPD-Complaint-Data-Historic/qgea-i56i) to graph the link between different types of crime and the monthly average temperature, precipitation and wind speed, along with how that crime is spread throughout New York City in 2018. We think that this information could serve the efforts of local law enforcement, as well as companies in the ride-hailing and food delivery sectors, by making clear the areas that should be avoided given certain meteorological circumstances. 
 
-On the "Introduction" page, it is a quote from Conan Doyle.
+## On the "Introduction" page：
+It is a quote from Conan Doyle.
 
-On the "CrimeMap" page, it is an interactive crime map in NYC. Users can select multiple months, from January to December, as well as a type of crime. So they can know how each kind of crime is distributed in a specific month range in 2018.
+## On the "CrimeMap" page：
+It is an interactive crime map in NYC. Users can select multiple months, from January to December, as well as a type of crime. So they can know how each kind of crime is distributed in a specific month range in 2018.
 ![screenshot](doc/screenshot1.png)
 
 
-On the "Crimes VS weather" page, users can get a view of the relationship between numbers of crimes and weather conditions. There are three options of weather conditions, including temperature, precipitation and wind speed. Also users can discover how the numbers of different types of crimes vary by month.
+## On the "Crimes VS weather" page：
+Users can get a view of the relationship between numbers of crimes and weather conditions. There are three options of weather conditions, including temperature, precipitation and wind speed. Also users can discover how the numbers of different types of crimes vary by month.
 ![screenshot](doc/screenshot2.png)
 
-On the "Contact" page, users can find the team's contact information.
+## On the "Contact" page：
+Users can find the team's contact information.
 
-+ **Contribution statement**: ([default](doc/a_note_on_contributions.md)) 
++ **Contribution statement**: ([default](doc/a_note_on_contributions.md)) \\
+
 Introduction page: Xin Gao
 cimeMap page-UI: Xin Gao
 crimeMap page-Server: Xin Gao
