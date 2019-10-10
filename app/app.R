@@ -50,10 +50,6 @@ month_change$Month <- factor(c("Jan", "Feb", "Mar", "Apr",
                                         "May", "Jun", "Jul", "Aug", 
                                         "Sep", "Oct", "Nov", "Dec"))
 
-oceanIcons <- iconList(
-    haress = makeIcon("ferry-18.png", "ferry-18@2x.png", 18, 18),
-    pirate = makeIcon("danger-24.png", "danger-24@2x.png", 24, 24)
-)
 
 
 
@@ -83,7 +79,7 @@ ui<-tagList(
                         
                         sidebarPanel(
                             checkboxGroupInput("month", "Choose month:",
-                                               monthChoices,selected = monthChoices[1]),
+                                               monthChoices,selected = NULL),
                             
                             selectInput("crimeType","Select a type of crime",
                                         choices=ofens_des,
@@ -96,7 +92,7 @@ ui<-tagList(
                ),
                
                tabPanel("Crimes VS Weather",
-                        titlePanel(h3("Crimes in different months and monthly weather condition for 2018")),
+                        titlePanel(h3("Number of crimes in different months and monthly weather condition for 2018")),
                         sidebarPanel(
                             radioButtons("weather","Temperature/Precipitation/Wind:",choices = weather,selected = weather[1]
                             ),
