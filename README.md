@@ -39,7 +39,7 @@ It is a quote from Conan Doyle.
 
 **On the "CrimeMap" page：**
 It is an interactive crime map in NYC. Users can select multiple months, from January to December, as well as a type of crime. So they can know how each kind of crime is distributed in a specific month range in 2018.
-![screenshot](doc/figs/screenshot1.png)\
+![screenshot](doc/figs/screenshot1.png)
 
 
 **On the "Crimes VS weather" page：**
@@ -51,7 +51,7 @@ Users can get a view of the relationship between numbers of crimes and weather c
 **On the "Contact" page：**
 Users can find the team's contact information.
 
-+ **Contribution statement**: ([default](doc/a_note_on_contributions.md)) \
++ **Contribution statement**: ([default](doc/a_note_on_contributions.md))\
 
 Introduction page: Xin Gao
 
