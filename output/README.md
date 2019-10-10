@@ -2,5 +2,5 @@
 
 ### Output folder
 
-The output directory contains the processed datasets data2018.
+The output directory contains the processed datasets data2018, which is the output file of Data_Processing.Rmd in doc.
 

@@ -2,4 +2,10 @@
 
 ### Doc folder
 
-The doc directory contains the report or presentation files. It can have subfolders.  
+The doc directory contains the report or presentation files. It can have subfolders. 
+
+Data_Processing.Rmd is data cleaning part, and the output file is in output folder.
+
+Shiny_grp2.Rmd produces the shiny app. 
+
+figs subfolder contains figures that needed for the root readme file.
