@@ -11,10 +11,19 @@ Below is an example. If no contribution statement is provided, we will insert a 
 ---
 Sample project README statement.
 
-Project xxx
+Project: NYC Crimes
 
-Team members: Avi Bond, Comma Deed, En Funn, Gem Hon
+Team members: Zack Abrams, Xin Gao, Zun Gao, Yang Meng, Qiuyu Ruan
 
-Summary: In this project, we developed a new method and improved the classification accuracy for images of cats and dogs to 99.9%
+Summary: In this project, we graph the link between different types of crime and the monthly average temperature, precipitation and wind speed, along with how that crime is spread throughout New York City in 2018 using Shiny App.
 
-[Contribution Statement] AB, CD, EF and GH designed the study. AB and CD developed baseline classification model for evaluation. EF and GH explored feature engineering for improving the baseline model. AB, EF and GH discussed and designed the model evaluation protocol. CD carried out the computation for model evaluation. All team members contributed to the GitHub repository and prepared the presentation. All team members approve our work presented in our GitHub repository including this contribution statement.
+[Contribution Statement] 
+Introduction page: Xin Gao
+cimeMap page-UI: Xin Gao
+crimeMap page-Server: Xin Gao
+Crime VS weather page-UI: Qiuyu Ruan, Yang Meng
+Crime VS weather page-Server: Qiuyu Ruan, Yang Meng
+Contact page: Qiuyu Ruan
+Presentation: Zun Gao, Zack Abrams
+Data cleaning: Xin Gao, Qiuyu Ruan, Yang Meng
+Github arrangement: Yang Meng
