@@ -2,5 +2,5 @@
 
 ### Data folder
 
-The data directory contains data used in the analysis. This is treated as read only; in paricular the R/python files are never allowed to write to the files in here. Depending on the project, these might be csv files, a database, and the directory itself may have subdirectories.
+Since the original data we choose is too big, we cannot upload it on the github. Here is the URL of the data [NYPD Complaint Data Historic](https://data.cityofnewyork.us/Public-Safety/NYPD-Complaint-Data-Historic/qgea-i56i). Also, we further processed the original data into the data we actually used in this project, and we put it in the output file, named data2018. 
 
