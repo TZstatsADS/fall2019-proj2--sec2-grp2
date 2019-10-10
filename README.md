@@ -2,7 +2,7 @@
 
 
 
-![screenshot](doc/screenshot3.png)
+![screenshot](doc/figs/screenshot3.png)
 
 In this second project of GR5243 Applied Data Science, we develop a version 2.0 of an *Exploratory Data Analysis and Visualization* shiny app on a topic of your choice using [NYC Open Data](https://opendata.cityofnewyork.us/) or U.S. government open data released on the [data.gov](https://data.gov/) website. See [Project 2 Description](doc/project2_desc.md) for more details.  
 
@@ -39,12 +39,12 @@ It is a quote from Conan Doyle.
 
 **On the "CrimeMap" page：**
 It is an interactive crime map in NYC. Users can select multiple months, from January to December, as well as a type of crime. So they can know how each kind of crime is distributed in a specific month range in 2018.
-![screenshot](doc/screenshot1.png)\\
+![screenshot](doc/figs/screenshot1.png)\\
 
 
 **On the "Crimes VS weather" page：**
 Users can get a view of the relationship between numbers of crimes and weather conditions. There are three options of weather conditions, including temperature, precipitation and wind speed. Also users can discover how the numbers of different types of crimes vary by month.
-![screenshot](doc/screenshot2.png)
+![screenshot](doc/figs/screenshot2.png)
 
 
 
