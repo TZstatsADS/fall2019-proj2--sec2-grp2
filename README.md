@@ -40,7 +40,7 @@ crimeMap page-Server: Xin Gao
 Crime VS weather page-UI: Qiuyu Ruan, Yang Meng
 Crime VS weather page-Server: Qiuyu Ruan, Yang Meng
 Contact page: Qiuyu Ruan
-Presentation: Zun Gao, Zack Abrams
+Presentation: Zun Gao
 Data cleaning: Xin Gao, Qiuyu Ruan, Yang Meng
 Github arrangement: Yang Meng
 
@@ -49,16 +49,16 @@ Following [suggestions](http://nicercode.github.io/blog/2013-04-05-projects/) by
 
 ```
 proj/
-âââ app/
-âââ lib/
-âââ data/
-âââ doc/
-âââ output/
+├── app/
+├── lib/
+├── data/
+├── doc/
+└── output/
 ```
 
 Please see each subfolder for a README file.
 
-â output/
+�─ output/
 ```
 
 Please see each subfolder for a README file.

@@ -24,6 +24,6 @@ crimeMap page-Server: Xin Gao
 Crime VS weather page-UI: Qiuyu Ruan, Yang Meng
 Crime VS weather page-Server: Qiuyu Ruan, Yang Meng
 Contact page: Qiuyu Ruan
-Presentation: Zun Gao, Zack Abrams
+Presentation: Zun Gao
 Data cleaning: Xin Gao, Qiuyu Ruan, Yang Meng
 Github arrangement: Yang Meng
