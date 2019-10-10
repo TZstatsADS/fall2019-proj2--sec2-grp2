@@ -21,6 +21,7 @@ The **learning goals** for this project is:
 Term: Fall 2019
 
 + Team # 2
+Link to Shiny App:[shiny](https://xg2298.shinyapps.io/proj2/)
 + **Project title**: 
 	+ Abrams, Zack zda2105@columbia.edu
 	+ Gao, Xin xg2298@columbia.edu
@@ -28,7 +29,7 @@ Term: Fall 2019
 	+ Meng, Yang ym2696@columbia.edu
 	+ Ruan, Qiuyu qr2127@columbia.edu
 
-+ **Project summary**:
++ **Project summary**:\\
 Hotter temperatures may also lead to one unexpected result: a rise in violent crime. Research by Leah Schinasi and Ghassan Hamra, professors at Drexel University, has uncovered a strong link between hot weather in violent time by looking at data from Philadelphia over the course of ten years. Understanding the link between types of weather and crime rates and how crime is distributed over a geographic area could prove essential for the century to come. 
 
 In our project, we analyzed data from  [NYC Open Data](https://data.cityofnewyork.us/Public-Safety/NYPD-Complaint-Data-Historic/qgea-i56i) to graph the link between different types of crime and the monthly average temperature, precipitation and wind speed, along with how that crime is spread throughout New York City in 2018. We think that this information could serve the efforts of local law enforcement, as well as companies in the ride-hailing and food delivery sectors, by making clear the areas that should be avoided given certain meteorological circumstances. 
@@ -38,7 +39,7 @@ It is a quote from Conan Doyle.
 
 **On the "CrimeMap" page：**
 It is an interactive crime map in NYC. Users can select multiple months, from January to December, as well as a type of crime. So they can know how each kind of crime is distributed in a specific month range in 2018.
-![screenshot](doc/screenshot1.png)
+![screenshot](doc/screenshot1.png)\\
 
 
 **On the "Crimes VS weather" page：**
